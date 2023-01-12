@@ -3,7 +3,7 @@ import os
 from selenium import webdriver
 
 class Booking(webdriver.Chrome):
-    def __init__(self, driver_path=r":/home/daniel/Desktop/Trybe/personalprojects/browser-automation/SeleniumDrivers"):
+    def __init__(self, driver_path=const.SELENIUM_DRIVER):
         self.driver_path = driver_path
         os.environ['PATH'] += self.driver_path
         super(Booking, self).__init__()
