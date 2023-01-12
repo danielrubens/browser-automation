@@ -18,3 +18,9 @@ class Booking(webdriver.Chrome):
 
     def land_first_page(self):
         self.get(const.BASE_URL)
+
+    def change_currency(self, currency=None):
+        currency_element = self.find_element_by_css_selector(
+            'button[data-tooltip-text="Choose your currency"]'
+        )
+        currency_element.click()
