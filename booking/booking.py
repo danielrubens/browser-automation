@@ -2,6 +2,7 @@ import booking.constants as const
 import os
 from selenium import webdriver
 
+
 class Booking(webdriver.Chrome):
     def __init__(self, driver_path=const.SELENIUM_DRIVER):
         self.driver_path = driver_path
