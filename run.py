@@ -1,9 +1,4 @@
-import os
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.keys import Keys
+from booking.booking import Booking 
 
-os.environ['PATH'] += r":/home/daniel/Desktop/Trybe/personalprojects/browser-automation/SeleniumDrivers"
-driver = webdriver.Chrome()
+inst = Booking()
+inst.land_first_page()
