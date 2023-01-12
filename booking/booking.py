@@ -34,3 +34,6 @@ class Booking(webdriver.Chrome):
         search_field = self.find_element_by_id('ss')
         search_field.clear()
         search_field.send_keys(place)
+
+        first_result = self.find_element_by_css_selector('li[data-i="0"]')
+        first_result.click()
