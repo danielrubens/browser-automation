@@ -24,3 +24,7 @@ class Booking(webdriver.Chrome):
             'button[data-tooltip-text="Choose your currency"]'
         )
         currency_element.click()
+        selected_currency = self.find_element_by_css_selector(
+            f'a[data-modal-header-async-url-param*="selected_currency={currency}"]'
+        )
+        selected_currency.click()
