@@ -19,7 +19,8 @@ class Booking(webdriver.Chrome):
     def land_first_page(self):
         self.get(const.BASE_URL)
 
-    def change_currency(self, currency=None):
+    def choose_currency(self, currency=None):
+        self.implicitly_wait(15)
         currency_element = self.find_element_by_css_selector(
             'button[data-tooltip-text="Choose your currency"]'
         )
@@ -28,3 +29,8 @@ class Booking(webdriver.Chrome):
             f'a[data-modal-header-async-url-param*="selected_currency={currency}"]'
         )
         selected_currency.click()
+
+    def select_place(self, place):
+        search_field = self.find_element_by_id('ss')
+        search_field.clear()
+        search_field.send_keys(place)
