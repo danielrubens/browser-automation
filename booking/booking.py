@@ -64,3 +64,6 @@ class Booking(webdriver.Chrome):
                 'button[aria-label="Decrease number of Adults"]'
             )
             decrease_adults.click()
+            adults_value = self.find_element_by_id('group_adults').get_attribute('value')
+            if int(adults_value) == 1:
+                break
