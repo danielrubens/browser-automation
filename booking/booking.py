@@ -67,3 +67,8 @@ class Booking(webdriver.Chrome):
             adults_value = self.find_element_by_id('group_adults').get_attribute('value')
             if int(adults_value) == 1:
                 break
+        increase_button = self.find_element_by_css_selector(
+            'button[aria-label="Increase number of Adults"]'
+        )
+        for _ in range(count - 1):
+            increase_button.click()
