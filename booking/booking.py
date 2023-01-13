@@ -38,6 +38,7 @@ class Booking(webdriver.Chrome):
             print('HTML Element not loaded')
 
     def select_place(self, place):
+        time.sleep(4)
         self.implicitly_wait(15)
         search_field = self.find_element_by_id('ss')
         search_field.clear()
@@ -51,8 +52,15 @@ class Booking(webdriver.Chrome):
         self.implicitly_wait(15)
         checkin_element = self.find_element_by_css_selector(f'td[data-date="{checkin}"]')
         checkin_element.click()
-        print(checkin_element)
-        print(checkin)
         checkout_element = self.find_element_by_css_selector(f'td[data-date="{checkout}"]')
         checkout_element.click()
         time.sleep(3)
+    
+    def select_guests(self, count=1):
+        guests = self.find_element_by_id('xp__guests__toggle')
+        guests.click()
+        while True:
+            decrease_adults = self.find_element_by_css_selector(
+                'button[aria-label="Decrease number of Adults"]'
+            )
+            decrease_adults.click()
