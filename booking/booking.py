@@ -2,6 +2,8 @@ import booking.constants as const
 import os
 import time
 from selenium import webdriver
+from booking.booking_filtration import BookingFiltration
+
 
 
 class Booking(webdriver.Chrome):
@@ -78,3 +80,6 @@ class Booking(webdriver.Chrome):
             'button[type="submit"]'
         )
         search_button.click()
+
+    def apply_filtrations(self):
+        filtration = BookingFiltration(driver=self)
