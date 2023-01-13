@@ -38,7 +38,7 @@ class Booking(webdriver.Chrome):
             print('HTML Element not loaded')
 
     def select_place(self, place):
-        time.sleep(4)
+        time.sleep(7)
         self.implicitly_wait(15)
         search_field = self.find_element_by_id('ss')
         search_field.clear()
@@ -72,3 +72,9 @@ class Booking(webdriver.Chrome):
         )
         for _ in range(count - 1):
             increase_button.click()
+
+    def search(self):
+        search_button = self.find_element_by_css_selector(
+            'button[type="submit"]'
+        )
+        search_button.click()
