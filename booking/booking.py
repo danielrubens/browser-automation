@@ -21,7 +21,8 @@ class Booking(webdriver.Chrome):
 
     def land_first_page(self):
         self.implicitly_wait(15)
-        self.get(const.BASE_URL)
+        # self.get(const.BASE_URL)
+        self.get(const.STEPS)
         time.sleep(3)
 
     def choose_currency(self, currency=None):
@@ -83,3 +84,4 @@ class Booking(webdriver.Chrome):
 
     def apply_filtrations(self):
         filtration = BookingFiltration(driver=self)
+        filtration.apply_star_rating()
