@@ -6,7 +6,6 @@ from selenium.webdriver.remote.webdriver import WebDriver
 import time
 
 
-
 class BookingFiltration:
     def __init__(self, driver: WebDriver):
         self.driver = driver
@@ -15,11 +14,13 @@ class BookingFiltration:
         star_filtration_box = self.driver.find_element_by_css_selector(
             f'div[data-filters-item="class:class={str(stars)}"]'
         )
-        # star_filtration_box = self.driver.find_element_by_css_selector(
-        #     'div[data-filters-group="class"]'
-        # )
-        # print(star_filtration_box)
         star_filtration_box.click()
         time.sleep(5)
+    
+    def dropdown_triggers(self):
+        trigers = self.driver.find_element_by_css_selector(
+            'button[data-testid="sorters-dropdown-trigger"]'
+        )
+        trigers.click()
 
 
