@@ -5,6 +5,7 @@
 from selenium.webdriver.remote.webelement import WebElement
 
 
+
 class BookingReport():
     def __init__(self, property_cards: WebElement):
         self.property_cards = property_cards

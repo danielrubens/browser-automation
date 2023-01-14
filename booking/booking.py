@@ -4,6 +4,8 @@ import time
 from selenium import webdriver
 from booking.booking_filtration import BookingFiltration
 from booking.booking_report import BookingReport
+from prettytable import PrettyTable
+
 
 
 class Booking(webdriver.Chrome):
@@ -95,4 +97,8 @@ class Booking(webdriver.Chrome):
             'div[data-testid="property-card"]'
         )
         report = BookingReport(property_cards)
-        print(report.pull_hotel_attributes())
+        table = PrettyTable(
+            field_names=['Hotel Name', 'Hotel Price', 'Hotel Score']
+        )
+        table.add_rows(report.pull_hotel_attributes())
+        print(table)
