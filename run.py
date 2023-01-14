@@ -7,7 +7,7 @@ try:
         bot.choose_currency(currency='USD')
         bot.select_place(input("Where do you want to go?"))
         bot.select_dates(input("Checkin date"), input("Checkout date"))
-        bot.select_guests(input("How many guests?"))
+        bot.select_guests(int(input("How many guests?")))
         bot.search()
         bot.apply_filtrations(5, 'price')
         time.sleep(5)
