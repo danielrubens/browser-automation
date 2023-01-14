@@ -3,7 +3,7 @@ import os
 import time
 from selenium import webdriver
 from booking.booking_filtration import BookingFiltration
-
+from booking.booking_report import BookingReport
 
 
 class Booking(webdriver.Chrome):
@@ -91,8 +91,9 @@ class Booking(webdriver.Chrome):
         filtration.dropdown_triggers(trigger)
     
     def report_results(self):
-        property_cards = self.find_element_by_css_selector(
+        property_cards = self.find_elements_by_css_selector(
             'div[data-testid="property-card"]'
         )
-        for i in property_cards:
-            print(i)
+        # property_cards = self.find_element_by_class_name("d4924c9e74")
+        report = BookingReport(property_cards)
+        report.pull_titles()
