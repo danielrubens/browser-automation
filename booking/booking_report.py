@@ -14,4 +14,7 @@ class BookingReport():
             hotel_name = i.find_element_by_css_selector(
                 'div[data-testid="title"]'
             ).get_attribute('innerHTML').strip()
-            print(hotel_name)
+            price = i.find_element_by_css_selector(
+                'span[data-testid="price-and-discounted-price"]'
+            ).text
+            print(f'{hotel_name}: {price}')

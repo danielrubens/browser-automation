@@ -11,6 +11,7 @@ try:
         # bot.search()
         bot.apply_filtrations(5, 'price')
         time.sleep(5)
+        bot.refresh()
         bot.report_results()
 except Exception as e:
     if 'in PATH' in str(e):
