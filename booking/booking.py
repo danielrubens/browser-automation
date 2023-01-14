@@ -94,6 +94,5 @@ class Booking(webdriver.Chrome):
         property_cards = self.find_elements_by_css_selector(
             'div[data-testid="property-card"]'
         )
-        # property_cards = self.find_element_by_class_name("d4924c9e74")
         report = BookingReport(property_cards)
         report.pull_titles()

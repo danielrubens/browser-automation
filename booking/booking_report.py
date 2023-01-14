@@ -11,5 +11,7 @@ class BookingReport():
 
     def pull_titles(self):
         for i in self.property_cards:
-            hotel_name = i.text
+            hotel_name = i.find_element_by_css_selector(
+                'div[data-testid="title"]'
+            ).get_attribute('innerHTML').strip()
             print(hotel_name)
