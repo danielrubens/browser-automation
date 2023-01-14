@@ -82,7 +82,7 @@ class Booking(webdriver.Chrome):
         )
         search_button.click()
 
-    def apply_filtrations(self, stars):
+    def apply_filtrations(self, stars, trigger):
         filtration = BookingFiltration(driver=self)
         filtration.apply_star_rating(stars)
-        filtration.dropdown_triggers()
+        filtration.dropdown_triggers(trigger)

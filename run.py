@@ -9,6 +9,6 @@ with Booking() as bot:
     # bot.select_dates('2023-01-15', '2023-01-19')
     # bot.select_guests(1)
     # bot.search()
-    bot.apply_filtrations(5)
+    bot.apply_filtrations(5, 'price')
     time.sleep(5)
     
