@@ -17,4 +17,7 @@ class BookingReport():
             price = i.find_element_by_css_selector(
                 'span[data-testid="price-and-discounted-price"]'
             ).text
-            print(f'{hotel_name}: {price}')
+            score = i.find_element_by_css_selector(
+                'div[data-testid="review-score"]'
+            ).text
+            print(f'{hotel_name}: {price} --- Score: {score}')
