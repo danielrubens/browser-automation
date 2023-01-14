@@ -9,9 +9,11 @@ class BookingReport():
     def __init__(self, property_cards: WebElement):
         self.property_cards = property_cards
 
-    def pull_titles(self):
+    def pull_hotel_attributes(self):
+        collection = []
+        #nested list
         for i in self.property_cards:
-            hotel_name = i.find_element_by_css_selector(
+            name = i.find_element_by_css_selector(
                 'div[data-testid="title"]'
             ).get_attribute('innerHTML').strip()
             price = i.find_element_by_css_selector(
@@ -20,4 +22,6 @@ class BookingReport():
             score = i.find_element_by_css_selector(
                 'div[data-testid="review-score"]'
             ).text
-            print(f'{hotel_name}: {price} --- Score: {score}')
+            # print(f'{name}: {price} --- Score: {score}')
+            collection.append([name, price, score])
+        return collection

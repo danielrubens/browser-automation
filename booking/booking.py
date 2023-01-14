@@ -95,4 +95,4 @@ class Booking(webdriver.Chrome):
             'div[data-testid="property-card"]'
         )
         report = BookingReport(property_cards)
-        report.pull_titles()
+        report.pull_hotel_attributes()
