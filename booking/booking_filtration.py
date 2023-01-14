@@ -6,6 +6,7 @@ from selenium.webdriver.remote.webdriver import WebDriver
 import time
 
 
+
 class BookingFiltration:
     def __init__(self, driver: WebDriver):
         self.driver = driver
