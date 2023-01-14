@@ -89,3 +89,10 @@ class Booking(webdriver.Chrome):
         filtration = BookingFiltration(driver=self)
         filtration.apply_star_rating(stars)
         filtration.dropdown_triggers(trigger)
+    
+    def report_results(self):
+        property_cards = self.find_element_by_css_selector(
+            'div[data-testid="property-card"]'
+        )
+        for i in property_cards:
+            print(i)
