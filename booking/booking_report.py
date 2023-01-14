@@ -21,7 +21,7 @@ class BookingReport():
             ).text
             score = i.find_element_by_css_selector(
                 'div[data-testid="review-score"]'
-            ).text
+            ).text.split('\n')[0]
             # print(f'{name}: {price} --- Score: {score}')
             collection.append([name, price, score])
         return collection
