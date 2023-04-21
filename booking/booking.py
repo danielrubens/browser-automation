@@ -47,22 +47,15 @@ class Booking(webdriver.Chrome):
     def fill_name(self, name):
         time.sleep(2)
         self.implicitly_wait(2)
-        # first_result = self.find_element_by_css_selector('input[name="nome"]')
         search_field = self.find_element_by_id('nome')
-        # search_field.clear()
         search_field.send_keys('Daniel Rubens')
+        # time.sleep(3)
 
-        first_result = self.find_element_by_css_selector('li[data-i="0"]')
-        first_result.click()
-        time.sleep(3)
-
-    def select_dates(self, checkin, checkout):
-        self.implicitly_wait(15)
-        checkin_element = self.find_element_by_css_selector(f'td[data-date="{checkin}"]')
-        checkin_element.click()
-        checkout_element = self.find_element_by_css_selector(f'td[data-date="{checkout}"]')
-        checkout_element.click()
-        time.sleep(3)
+    def fill_email(self, email):
+        time.sleep(2)
+        self.implicitly_wait(2)
+        search_field = self.find_element_by_id('email')
+        search_field.send_keys('danielrubens@gmail.com')
     
     def select_guests(self, count=1):
         guests = self.find_element_by_id('xp__guests__toggle')

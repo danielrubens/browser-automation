@@ -9,7 +9,7 @@ try:
         # bot.choose_candidate()
         # time.sleep(2)
         bot.fill_name(name='')
-        # bot.select_dates(input("Checkin date"), input("Checkout date"))
+        bot.fill_email(email='')
         # bot.select_guests(int(input("How many guests?")))
         # bot.search()
         # bot.apply_filtrations(5, 'price')
