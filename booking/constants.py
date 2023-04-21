@@ -1,2 +1,2 @@
-BASE_URL = "https://www.booking.com"
-SELENIUM_DRIVER = r":/your-directory/SeleniumDrivers"
+BASE_URL = "https://www.meionorte.com/enquetes/miss-universo-piaui-2023-escolha-uma-candidata-para-ir-ao-top-5-389"
+SELENIUM_DRIVER =r":/home/daniel/Desktop/projects/personal/browser-automation/SeleniumDrivers"

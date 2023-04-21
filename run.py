@@ -3,16 +3,19 @@ import time
 
 try:
     with Booking() as bot:
+      
+        # time.sleep(2)  
         bot.land_first_page()
-        bot.choose_currency(currency='USD')
-        bot.select_place(input("Where do you want to go?"))
-        bot.select_dates(input("Checkin date"), input("Checkout date"))
-        bot.select_guests(int(input("How many guests?")))
-        bot.search()
-        bot.apply_filtrations(5, 'price')
-        time.sleep(5)
-        bot.refresh()
-        bot.report_results()
+        # bot.choose_candidate()
+        # time.sleep(2)
+        bot.fill_name(name='')
+        # bot.select_dates(input("Checkin date"), input("Checkout date"))
+        # bot.select_guests(int(input("How many guests?")))
+        # bot.search()
+        # bot.apply_filtrations(5, 'price')
+        # time.sleep(5)
+        # bot.refresh()
+        # bot.report_results()
 except Exception as e:
     if 'in PATH' in str(e):
       print(

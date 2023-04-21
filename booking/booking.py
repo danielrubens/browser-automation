@@ -27,30 +27,30 @@ class Booking(webdriver.Chrome):
     def land_first_page(self):
         self.implicitly_wait(15)
         self.get(const.BASE_URL)
-        # self.get(const.STEPS)
         time.sleep(3)
 
-    def choose_currency(self, currency=None):
+    def choose_candidate(self):
         try:
             self.implicitly_wait(5)
             currency_element = self.find_element_by_css_selector(
-                'button[data-tooltip-text="Choose your currency"]'
+                'input[value="1018"]'
             )
             currency_element.click()
             selected_currency = self.find_element_by_css_selector(
-                f'a[data-modal-header-async-url-param*="selected_currency={currency}"]'
+                f'button[class="buttonForm"]'
             )
             selected_currency.click()
             time.sleep(3)
         except:
             print('HTML Element not loaded')
 
-    def select_place(self, place):
-        time.sleep(7)
-        self.implicitly_wait(15)
-        search_field = self.find_element_by_id('ss')
-        search_field.clear()
-        search_field.send_keys(place)
+    def fill_name(self, name):
+        time.sleep(2)
+        self.implicitly_wait(2)
+        # first_result = self.find_element_by_css_selector('input[name="nome"]')
+        search_field = self.find_element_by_id('nome')
+        # search_field.clear()
+        search_field.send_keys('Daniel Rubens')
 
         first_result = self.find_element_by_css_selector('li[data-i="0"]')
         first_result.click()
