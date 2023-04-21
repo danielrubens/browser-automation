@@ -25,73 +25,77 @@ class Booking(webdriver.Chrome):
             self.quit()
 
     def land_first_page(self):
-        self.implicitly_wait(15)
+        self.implicitly_wait(5)
         self.get(const.BASE_URL)
         time.sleep(3)
 
     def choose_candidate(self):
         try:
-            self.implicitly_wait(5)
+            self.implicitly_wait(2)
             currency_element = self.find_element_by_css_selector(
                 'input[value="1018"]'
             )
             currency_element.click()
-            selected_currency = self.find_element_by_css_selector(
-                f'button[class="buttonForm"]'
-            )
-            selected_currency.click()
-            time.sleep(3)
+            # return True
+    
+            
+            # self.implicitly_wait(2)
+            # selected_currency = self.find_element_by_css_selector('button[type="submit"]')
+            # selected_currency.click()
+            # time.sleep(3)
         except:
             print('HTML Element not loaded')
 
     def fill_name(self, name):
-        time.sleep(2)
-        self.implicitly_wait(2)
-        search_field = self.find_element_by_id('nome')
-        search_field.send_keys('Daniel Rubens')
+        # time.sleep(2)
+        # self.implicitly_wait(2)
+        try:
+            search_field = self.find_element_by_id('nome')
+            search_field.send_keys('Daniel Rubens')
+            return True
         # time.sleep(3)
+        except:
+            self.choose_candidate()
+            self.click_vote()
 
     def fill_email(self, email):
+        # time.sleep(2)
+        # self.implicitly_wait(2)
+        try:
+            search_field = self.find_element_by_id('email')
+            search_field.send_keys('danielrubens@gmail.com')
+    
+        except:
+            self.choose_candidate()
+            self.click_vote()
+
+    def fill_phone(self, phone):
+    #    time.sleep(2)
+    #    self.implicitly_wait(2)
+        try:
+            search_field = self.find_element_by_id('telefone')
+            search_field.send_keys('(85) 98159-6937')
+    
+        except:
+            self.choose_candidate()
+            self.click_vote()
+
+    def check_box(self):
+        try:
+            search_field = self.find_element_by_id('term_user')
+            search_field.click()
+    
+        except:
+            self.choose_candidate()
+            self.click_vote()
+
+    def click_button(self):
         time.sleep(2)
-        self.implicitly_wait(2)
-        search_field = self.find_element_by_id('email')
-        search_field.send_keys('danielrubens@gmail.com')
-    
-    def select_guests(self, count=1):
-        guests = self.find_element_by_id('xp__guests__toggle')
-        guests.click()
-        while True:
-            decrease_adults = self.find_element_by_css_selector(
-                'button[aria-label="Decrease number of Adults"]'
-            )
-            decrease_adults.click()
-            adults_value = self.find_element_by_id('group_adults').get_attribute('value')
-            if int(adults_value) == 1:
-                break
-        increase_button = self.find_element_by_css_selector(
-            'button[aria-label="Increase number of Adults"]'
-        )
-        for _ in range(count - 1):
-            increase_button.click()
+        search_field = self.find_element_by_css_selector('button[type="submit"]')
+        search_field.click()
 
-    def search(self):
-        search_button = self.find_element_by_css_selector(
-            'button[type="submit"]'
-        )
-        search_button.click()
-
-    def apply_filtrations(self, stars, trigger):
-        filtration = BookingFiltration(driver=self)
-        filtration.apply_star_rating(stars)
-        filtration.dropdown_triggers(trigger)
+    def click_vote(self):
+        time.sleep(2)
+        search_field = self.find_element_by_css_selector('button[type="submit"]')
+        search_field.click()
     
-    def report_results(self):
-        property_cards = self.find_elements_by_css_selector(
-            'div[data-testid="property-card"]'
-        )
-        report = BookingReport(property_cards)
-        table = PrettyTable(
-            field_names=['Hotel Name', 'Hotel Price', 'Hotel Score']
-        )
-        table.add_rows(report.pull_hotel_attributes())
-        print(table)

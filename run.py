@@ -6,10 +6,20 @@ try:
       
         # time.sleep(2)  
         bot.land_first_page()
-        # bot.choose_candidate()
         # time.sleep(2)
         bot.fill_name(name='')
         bot.fill_email(email='')
+        bot.fill_phone(phone='')
+        bot.check_box()
+        bot.click_button()
+        bot.choose_candidate()
+        time.sleep(2)
+        try:
+          bot.click_vote()
+        except:
+           time.sleep(2)
+           bot.click_vote()
+        # bot.click_button()
         # bot.select_guests(int(input("How many guests?")))
         # bot.search()
         # bot.apply_filtrations(5, 'price')
